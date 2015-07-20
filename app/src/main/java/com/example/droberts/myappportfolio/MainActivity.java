@@ -24,8 +24,32 @@ public class MainActivity extends ActionBarActivity {
         toast.show();
     }
 
-    public void buttonClicked(View view) {
+    public void buttonClicked(View view) throws Exception {
         Button button = (Button)view;
-        showToast("This will open my '" + button.getText() + "' project.");
+        CharSequence message;
+        switch (button.getId()) {
+            case R.id.button_spotify_streamer:
+                message = getString(R.string.toast_spotify_streamer);
+                break;
+            case R.id.button_scores_app:
+                message = getString(R.string.toast_scores_app);
+                break;
+            case R.id.button_library_app:
+                message = getString(R.string.toast_library_app);
+                break;
+            case R.id.button_build_it_bigger:
+                message = getString(R.string.toast_build_it_bigger);
+                break;
+            case R.id.button_xyz_reader:
+                message = getString(R.string.toast_xyz_reader);
+                break;
+            case R.id.button_capstone:
+                message = getString(R.string.toast_capstone);
+                break;
+            default:
+                throw new Exception("Unknown button " + button.toString());
+        }
+
+        showToast(message);
     }
 }
