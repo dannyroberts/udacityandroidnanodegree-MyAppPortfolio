@@ -45,6 +45,6 @@ public class MainActivity extends ActionBarActivity {
 
     public void buttonClicked(View view) {
         Button button = (Button)view;
-        showToast(button.getText());
+        showToast("This will open my '" + button.getText() + "' project.");
     }
 }
