@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+    Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +17,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void showToast(CharSequence message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        if (toast != null) {
+            toast.cancel();
+        }
+        toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void buttonClicked(View view) {
